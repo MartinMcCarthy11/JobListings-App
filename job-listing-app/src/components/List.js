@@ -1,10 +1,9 @@
 import React from 'react'
 
-function List() {
+function List(props) {
+    console.log(props);
     return (
-        <div>
-            Hello
-        </div>
+        props.jobList.map(d => <li>{d.company}</li>)
     )
 }
 
