@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 
  class ListSkills extends Component {
-     
+    getStyle = () => {
+        return {
+            display: "flex",
+            flexDirection: "row"   ,
+            listStyle: "none",         
+        };
+      };
+
     
     render(){
         
@@ -13,14 +20,18 @@ import React, { Component } from 'react'
               return false;
             }
           }).map(function(obj) { return obj['languages'][0]; });
-
-          console.log(skills.map(x => `<li>${x}</li>`));
       
-          return skills.map(x => <li>{x}</li>)}  
+          return (
+            <ul style = {this.getStyle()}>
+                {skills.map(x => <li className="skill">{x}</li>)}
+            </ul>
+          )
+          
+            
                   
        
     }
-
+ }
 
 
 export default ListSkills;

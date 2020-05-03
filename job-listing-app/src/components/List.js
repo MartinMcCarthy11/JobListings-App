@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 //import ListImage from './ListImage';
 import ListItem from './ListItem';
 
-function List(props) {
-    return (
-        
-        <ul>
-            <div>
-                <ListItem jobListSkills = {props.jobList}/>
-            </div>
-        </ul>
-    )
+class List extends Component {
+      
+    render(){
+        return (        
+            <ul>
+                <ListItem jobListSkills = {this.props.jobList}/>                
+            </ul>
+        )
+    }
+    
+    
 }
 
 export default List;
