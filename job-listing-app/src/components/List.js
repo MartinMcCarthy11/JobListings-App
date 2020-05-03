@@ -1,9 +1,15 @@
 import React from 'react'
+//import ListImage from './ListImage';
+import ListItem from './ListItem';
 
 function List(props) {
-    console.log(props);
     return (
-        props.jobList.map(d => <li>{d.company}</li>)
+        
+        <ul>
+            <div>
+                <ListItem jobListSkills = {props.jobList}/>
+            </div>
+        </ul>
     )
 }
 

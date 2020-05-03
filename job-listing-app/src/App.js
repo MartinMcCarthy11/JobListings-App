@@ -11,12 +11,9 @@ class App extends Component {
   }
   
   render(){
-    //const list = this.state.jobList.map(d => <li>{d.company}</li>);
     return (    
-      <div className="App">
-        <ul>
-         <List jobList = {this.state.jobList}/>
-        </ul>
+      <div className="App">        
+         <List jobList = {this.state.jobList}/>        
       </div>
     )
   }
