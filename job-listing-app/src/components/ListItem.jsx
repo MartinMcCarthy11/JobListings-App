@@ -1,28 +1,24 @@
 import React, { Component } from 'react'
 import ListSkills from './ListSkills';
+import ListImage from './ListImage';
 
 
 export default class ListItem extends Component {
-    getStyle = () => {
-        return {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent : "space-between",
-            background: "#f4f4f4",
-            padding: "20px",
-            margin: "20px",
-            borderBottom: "1px #ccc dotted",
-        };
-      };
 
     render() {
         return (
             
-            <div style = {this.getStyle()}>
-                    <div></div>{/* Image */}
-                    <div></div>{/* Job Description */}
-                    <ListSkills  jobListSkills = {this.props.jobListSkills}/>
+            <div className="list-item">
+                <div>
+                    <ListImage listImage = {this.props.jobListSkills.logo}/>
                 </div>
+                <div></div>
+                <div>
+                    <ul className="skills-list">
+                            <ListSkills  jobSkills = {this.props.jobListSkills.languages}/>
+                    </ul>
+                </div>        
+            </div>
   
         )
     }

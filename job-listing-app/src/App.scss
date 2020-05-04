@@ -5,6 +5,21 @@
     
   }
 
+  .list-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid black;
+  }
+
+  .skills-list{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+
   .skill{
     padding-right: 10px;;
   }

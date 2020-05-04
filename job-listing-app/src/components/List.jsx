@@ -7,7 +7,9 @@ class List extends Component {
     render(){
         return (        
             <ul>
-                <ListItem jobListSkills = {this.props.jobList}/>                
+                {this.props.jobList.map(job => (
+                    <ListItem jobListSkills = {job}/> 
+                ))}                               
             </ul>
         )
     }
