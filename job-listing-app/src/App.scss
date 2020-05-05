@@ -5,6 +5,21 @@
     
   }
 
+  .flex-row{
+    display: flex;
+    flex-direction:row ;
+
+  }
+
+  .list-description{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .job-detail-item{
+    padding-right: 15px;
+  }
+
   .list-item{
     display: flex;
     flex-direction: row;
