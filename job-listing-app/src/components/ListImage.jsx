@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-//import SVG from 'react-inlinesvg';
+import { ReactComponent as Logo } from '../images/photosnap.svg';
 
 class ListImage extends Component {
   render(){
-    return  <img alt="Logo" src={`.${this.props.listImage}`}></img>
+    return   <Logo/>
+    
+    //<SVG src={`.${this.props.listImage}`}/>
 
   }
     
