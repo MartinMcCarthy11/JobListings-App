@@ -33,7 +33,7 @@ export default class ListItem extends Component {
                             />
                     </React.Fragment>
                 </div>
-                <div>
+                <div className="skills-list-container">
                     <ul className="skills-list">
                             <ListSkills  jobSkills = {this.props.jobListSkills.languages}/>
                     </ul>
