@@ -4,7 +4,7 @@ export default class JobRole extends Component {
 
     render() {
         return (
-            <div>
+            <div className="job-description-row">
                 <h3>{this.props.jobRole}</h3>
             </div>       
         )

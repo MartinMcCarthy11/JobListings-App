@@ -6,12 +6,25 @@ import JobDetails from './ListDescription/JobDetails';
 import JobCompany from './ListDescription/JobCompany';
 
 export default class ListItem extends Component {
+    state = {clicked: false}
+    componentDidMount(){
+        this.setState({clicked: false})
+      }
 
+    handleClick = () =>{
+        if (this.state.clicked === false) {
+            this.setState({clicked: true});
+        }else{
+            this.setState({clicked: false});
+        }
+        
+      }
     render() {
+        var className = this.state.clicked ? 'list-item list-item-focus' : 'list-item';
         return (
             
-            <div className="list-item">
-                <div>
+            <div onClick={this.handleClick} className={className}>
+                <div className="list-image">
                     <ListImage listImage = {this.props.jobListSkills.logo}/>
                 </div>
                 <div className="list-description">
@@ -23,7 +36,8 @@ export default class ListItem extends Component {
                         />
                     </React.Fragment>
                     <React.Fragment>
-                        <JobRole jobRole = {this.props.jobListSkills.role}/>
+                        <JobRole 
+                            jobRole = {this.props.jobListSkills.position}/>
                     </React.Fragment>
                     <React.Fragment>
                         <JobDetails 
@@ -35,7 +49,10 @@ export default class ListItem extends Component {
                 </div>
                 <div className="skills-list-container">
                     <ul className="skills-list">
-                            <ListSkills  jobSkills = {this.props.jobListSkills.languages}/>
+                            <ListSkills  
+                            jobSkills = {this.props.jobListSkills.languages}
+                            jobLevel = {this.props.jobListSkills.level}
+                            jobRole = {this.props.jobListSkills.role}/>
                     </ul>
                 </div>        
             </div>

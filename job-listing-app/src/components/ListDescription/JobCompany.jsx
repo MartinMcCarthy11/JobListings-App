@@ -12,7 +12,7 @@ export default class JobCompany extends Component {
     
     render() {
         return (
-            <div className="flex-row">
+            <div className="flex-row job-description-row">
                 <span className="job-detail-item">{this.props.jobcompany}</span>
                 <span className="job-detail-item">{this.isNew()}</span>
                 <span className="job-detail-item">{this.isFeatured()}</span>

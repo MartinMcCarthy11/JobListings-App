@@ -12,8 +12,11 @@ class App extends Component {
   
   render(){
     return (    
-      <div className="App">        
-         <List jobList = {this.state.jobList}/>        
+      <div className="App">
+        <div className="main-container">
+          <List jobList = {this.state.jobList}/>  
+        </div>        
+               
       </div>
     )
   }
