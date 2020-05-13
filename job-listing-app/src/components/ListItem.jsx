@@ -3,7 +3,7 @@ import ListSkills from './ListSkills';
 import ListImage from './ListImage';
 import JobRole from './ListDescription/JobRole';
 import JobDetails from './ListDescription/JobDetails';
-import JobCompany from './ListDescription/JobCompany';
+import JobStatus from './ListDescription/JobStatus';
 
 export default class ListItem extends Component {
     state = {clicked: false}
@@ -29,7 +29,7 @@ export default class ListItem extends Component {
                 </div>
                 <div className="list-description">
                     <React.Fragment>
-                        <JobCompany
+                        <JobStatus
                             jobcompany = {this.props.jobListSkills.company}
                             jobTagNew = {this.props.jobListSkills.new}
                             jobTagFeatured = {this.props.jobListSkills.featured}

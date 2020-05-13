@@ -58,6 +58,43 @@
     padding-left: 10px;
   }
 
+  //job role
+  .job-role{
+    color: $VeryDarkGrayishCyan;
+
+    &:hover{
+      color: $DarkGrayishCyan;
+    }
+  }
+
+  //Job-details
+  .job-detail{
+    &__item{
+      font-weight: 500;
+      border-radius: 10px;
+
+      &--new{
+        box-sizing: border-box;
+        font-size: 11px;
+        background: $DarkGrayishCyan;
+        color: white;
+        text-transform: uppercase;       
+        margin: 0 15px 0 15px;
+        padding: 4px 4px 0 4px;
+      }
+
+      &--featured{
+        box-sizing: border-box;
+        font-size: 11px;
+        background: $VeryDarkGrayishCyan;
+        color: white;
+        text-transform: uppercase;
+        padding: 4px 4px 0 4px;
+      }
+    }
+  }
+
+  //Skills
   .skills-list-container{
     align-self: center;
   }
