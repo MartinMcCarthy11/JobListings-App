@@ -40,7 +40,6 @@
     grid-template-columns: .6fr 3fr 2fr;
     background: $LightGrayisCyan;
     box-sizing:border-box;
-    cursor: pointer;
     height: 150px;
     padding: 20px;
     margin: 20px;
@@ -61,7 +60,8 @@
   //job role
   .job-role{
     color: $VeryDarkGrayishCyan;
-
+    cursor: pointer;
+    
     &:hover{
       color: $DarkGrayishCyan;
     }

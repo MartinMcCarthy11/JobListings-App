@@ -11,19 +11,20 @@ export default class ListItem extends Component {
         this.setState({clicked: false})
       }
 
-    handleClick = () =>{
+    handleSelection = () => {
+        console.log("Item Clicked");
         if (this.state.clicked === false) {
             this.setState({clicked: true});
         }else{
             this.setState({clicked: false});
         }
-        
-      }
+    }
+
     render() {
-        var className = this.state.clicked ? 'list-item list-item-focus' : 'list-item';
+        let className = this.state.clicked ? 'list-item list-item-focus' : 'list-item';
         return (
             
-            <div onClick={this.handleClick} className={className}>
+            <div className={className}>
                 <div className="list-image">
                     <ListImage listImage = {this.props.jobListSkills.logo}/>
                 </div>
@@ -37,7 +38,8 @@ export default class ListItem extends Component {
                     </React.Fragment>
                     <React.Fragment>
                         <JobRole 
-                            jobRole = {this.props.jobListSkills.position}/>
+                            jobRole = {this.props.jobListSkills.position}
+                            onSelection = {this.handleSelection}/>
                     </React.Fragment>
                     <React.Fragment>
                         <JobDetails 
