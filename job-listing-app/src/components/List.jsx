@@ -9,7 +9,7 @@ class List extends Component {
             <React.Fragment>
                 <ul>
                     {this.props.jobList.map(job => (
-                        <ListItem jobListSkills = {job}/> 
+                        <ListItem key={job.id} jobListSkills = {job}/> 
                     ))}                               
                 </ul>
             </React.Fragment>
