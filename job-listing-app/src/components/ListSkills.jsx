@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
  class ListSkills extends Component {
     render(){
+      const {jobLevel, jobRole, jobSkills} = this.props;
+
       let arr = [];
       if(this.props.jobSkills !== undefined){
-        arr = [this.props.jobLevel, this.props.jobRole, ...this.props.jobSkills]
+        arr = [jobLevel, jobRole, ...jobSkills]
       }else{
         arr = []
       }
