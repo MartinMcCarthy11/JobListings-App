@@ -7,7 +7,7 @@ export default class FilterList extends Component {
         return (
             <div className={classList}>
                 <ul className="skills-list">
-                    {this.props.selectedSkills.map(x => <React.Fragment><li className="selected-skill">{x}</li><span className="selected-skill__remove-icon"><RemoveIcon/></span></React.Fragment>)}
+                    {this.props.selectedSkills.map(x => <React.Fragment><li className="selected-skill">{x}</li><span className="selected-skill__remove-icon" onClick={() => this.props.onClearSkill({x})} ><RemoveIcon/></span></React.Fragment>)}
                 </ul>
                 <ul className="skills-list">
                     <li className="clear-button" onClick={this.props.onClearSkills}>Clear</li>

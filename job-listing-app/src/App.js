@@ -39,8 +39,15 @@ class App extends Component {
     return null;
   }
   
-  handleClearFilter = () => {
+  handleClearAllFilter = () => {
     this.setState({selectedSkills : []});
+  }
+
+  handleClearFilter = (skill) => {
+    let selectedSkills = [...this.state.selectedSkills];
+    const index = selectedSkills.indexOf(skill);
+    selectedSkills.splice(index, 1);
+    this.setState({selectedSkills })
   }
 
   render(){
@@ -51,7 +58,7 @@ class App extends Component {
     return (    
       <div className="App">
         <div className="main-container">
-          <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearFilter}/>
+          <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearAllFilter} onClearSkill = {this.handleClearFilter}/>
           <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection}/>  
         </div>        
                
