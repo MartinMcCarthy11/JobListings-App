@@ -16,9 +16,13 @@ class List extends Component {
         return {allSkills : allSkills};
     }
 
-    onSkillSelection = () => {
-        console.log("Skill Clicked");
+    onSkillSelection = (skill) => {
+        let selectedSkills = [...this.state.selectedSkills];
+        selectedSkills.push(Object.values(skill)[0])
+        selectedSkills = [...new Set(selectedSkills)]
+        this.setState({selectedSkills })
     }
+    
     render(){
         return (  
         <div>   
