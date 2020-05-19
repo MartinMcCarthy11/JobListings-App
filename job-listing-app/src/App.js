@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from './components/List';
+import FilterList from './components/FilterList';
 import jobsListData from './data.json';
 import './App.scss';
 
@@ -23,7 +24,7 @@ class App extends Component {
     this.setState({allSkills});
   }
 
-  onSkillSelection = (skill) => {
+  handleSkillSelection = (skill) => {
         let selectedSkills = [...this.state.selectedSkills];
         selectedSkills.push(Object.values(skill)[0])
         selectedSkills = [...new Set(selectedSkills)]
@@ -38,16 +39,20 @@ class App extends Component {
     return null;
   }
   
+  handleClearFilter = () => {
+    this.setState({selectedSkills : []});
+  }
+
   render(){
-    let filterSkills = this.filterSkills(this.state.allSkills, this.state.selectedSkills);
+    //let filterSkills = this.filterSkills(this.state.allSkills, this.state.selectedSkills);
 
 
-    console.log(this.filterJobs(filterSkills,this.state.jobList ));
 
     return (    
       <div className="App">
         <div className="main-container">
-          <List jobList = {this.state.jobList} onSkillSelection = {this.onSkillSelection}/>  
+          <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearFilter}/>
+          <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection}/>  
         </div>        
                
       </div>
