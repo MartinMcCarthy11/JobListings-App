@@ -10,8 +10,7 @@ import React, { Component } from 'react'
       }else{
         arr = []
       }
-      
-      return arr.map(x => <li key={`${x}1`} className="skill">{x}</li>)
+      return arr.map(x => <li key={`${x}1`} className="skill" onClick={this.props.onSkillSelection}>{x}</li>)
    }
  }
 

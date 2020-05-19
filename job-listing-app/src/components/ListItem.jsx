@@ -12,7 +12,6 @@ export default class ListItem extends Component {
       }
 
     handleSelection = () => {
-        console.log("Item Clicked");
         if (this.state.clicked === false) {
             this.setState({clicked: true});
         }else{
@@ -55,7 +54,8 @@ export default class ListItem extends Component {
                             <ListSkills  
                             jobSkills = {languages}
                             jobLevel = {level}
-                            jobRole = {role}/>
+                            jobRole = {role}
+                            onSkillSelection = {this.props.onSkillSelection}/>
                     </ul>
                 </div>        
             </div>
