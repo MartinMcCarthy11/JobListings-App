@@ -5,9 +5,9 @@ export default class JobDetails extends Component {
         const {jobAge, jobContract, joblocation} = this.props;
         return (
             <div className="flex-row job-description-row">
-                <span className="job-detail-item">{jobAge}  </span>
-                <span className="job-detail-item">{jobContract}</span>
-                <span className="job-detail-item">{joblocation}</span>
+                <span className="job-detail__item job-detail__item--details">{jobAge}  </span>
+                <span className="job-detail__item job-detail__item--details">{jobContract}</span>
+                <span className="job-detail__item job-detail__item--details">{joblocation}</span>
             </div>
         )
     }

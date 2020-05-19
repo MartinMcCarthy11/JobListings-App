@@ -29,10 +29,7 @@
 
   .job-description-row{
     padding: 5px 5px 5px 0;
-  }
-
-  .job-detail-item{
-    padding-right: 15px;
+    align-items: center;
   }
 
   .list-item{
@@ -71,25 +68,27 @@
   .job-detail{
     &__item{
       font-weight: 500;
-      border-radius: 10px;
-
+      border-radius: 15px;
+     
+      &--details{
+        padding-right: 15px;
+      }
+      
       &--new{
-        box-sizing: border-box;
         font-size: 11px;
         background: $DarkGrayishCyan;
         color: white;
         text-transform: uppercase;       
-        margin: 0 15px 0 15px;
-        padding: 4px 4px 0 4px;
+        margin: 0 8px 0 15px;
+        padding: .5em .7em .3em .7em;
       }
 
       &--featured{
-        box-sizing: border-box;
         font-size: 11px;
         background: $VeryDarkGrayishCyan;
         color: white;
         text-transform: uppercase;
-        padding: 4px 4px 0 4px;
+        padding: .5em .7em .3em .7em;
       }
     }
   }
