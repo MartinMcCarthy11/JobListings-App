@@ -109,6 +109,10 @@
     flex-direction: row;
     justify-content: flex-end;
     list-style: none;
+
+    &--filter{
+      flex-wrap: wrap-reverse;
+    }
   }
 
   .skill{

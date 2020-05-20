@@ -6,7 +6,7 @@ export default class FilterList extends Component {
         let classList = this.props.selectedSkills.length >= 1 ? 'filter-list' : 'filter-list filter-list--inVisible';
         return (
             <div className={classList}>
-                <ul className="skills-list">
+                <ul className="skills-list skills-list--filter">
                     {this.props.selectedSkills.map(x => <React.Fragment><li className="selected-skill">{x}</li><span className="selected-skill__remove-icon" onClick={() => this.props.onClearSkill({x})} ><RemoveIcon/></span></React.Fragment>)}
                 </ul>
                 <ul className="skills-list">

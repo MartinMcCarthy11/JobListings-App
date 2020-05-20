@@ -3,7 +3,6 @@ import ListItem from './ListItem';
 
 class List extends Component {
     render(){
-        console.log(this.props.active);
         return (  
         <div>   
             <React.Fragment>

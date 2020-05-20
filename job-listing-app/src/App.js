@@ -41,7 +41,20 @@ class App extends Component {
   }
 
   filterJobs = (filterSkills, jobs) => {
-    return null;
+    let filteredArray = [...jobs].filter((element) => element.languages);
+
+
+    let arr = filteredArray.map(({languages, id}) => ({languages, id}));
+    let arr1 = arr.filter(x => x.languages.includes("Python"));
+    let arr2 = arr1.map(x => x.id);
+    let result = jobs.filter(job => {
+      if( arr2.indexOf(job.id) !== -1){
+        return job
+      }
+    })
+    this.setState({jobList: result})
+    /* .filter(a => a === "JavaScript"); */
+    //return filteredArray;
   }
   
   handleClearAllFilter = () => {
@@ -56,21 +69,27 @@ class App extends Component {
   }
 
   handleCompanySelection = (id) => {
-    /* let ids = [...this.state.ids]; */
     this.setState({activeId : id})
   }
 
   render(){
-    //let filterSkills = this.filterSkills(this.state.allSkills, this.state.selectedSkills);
-    
+    let filterSkills = this.filterSkills(this.state.allSkills, this.state.selectedSkills);
+    console.log(this.filterJobs(filterSkills, this.state.jobList))
 
 
     return (    
       <div className="App">
         <div className="background"></div>
         <div className="main-container">
-          <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearAllFilter} onClearSkill = {this.handleClearFilter}/>
-          <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection} onCompanySelection={this.handleCompanySelection} active={this.state.activeId}/>  
+          <FilterList 
+            selectedSkills = {this.state.selectedSkills}
+            onClearSkills = {this.handleClearAllFilter} 
+            onClearSkill = {this.handleClearFilter}/>
+          <List 
+            jobList = {this.state.jobList} 
+            onSkillSelection = {this.handleSkillSelection} 
+            onCompanySelection={this.handleCompanySelection} 
+            active={this.state.activeId}/>  
         </div>        
                
       </div>
