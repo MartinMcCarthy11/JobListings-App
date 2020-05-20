@@ -67,6 +67,7 @@ class App extends Component {
 
     return (    
       <div className="App">
+        <div className="background"></div>
         <div className="main-container">
           <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearAllFilter} onClearSkill = {this.handleClearFilter}/>
           <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection} onCompanySelection={this.handleCompanySelection} active={this.state.activeId}/>  

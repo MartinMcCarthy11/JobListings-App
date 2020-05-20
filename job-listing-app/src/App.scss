@@ -9,9 +9,15 @@
     
   }
 
+  .background{
+    background: repeat-x url('./images/bg-header-desktop.svg')  $DarkGrayishCyan;
+    height: 156px;
+  }
+
   .main-container{
     width: 80%;
     margin: auto;
+    margin-top: -70px;
   }
 
   .flex-row{
@@ -150,7 +156,7 @@
     box-shadow: 2px 6px 15px -4px rgba(123,142,142,0.5);  
 
     &--inVisible{
-      display: none;
+      visibility: hidden;
     }
   }
 
