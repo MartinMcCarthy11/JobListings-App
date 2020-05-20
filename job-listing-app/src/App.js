@@ -8,7 +8,9 @@ class App extends Component {
   state = {
     jobList:[],
     selectedSkills: [],
-    allSkills: []
+    allSkills: [],
+    ids: [],
+    activeId: 0
   }
 
   componentWillMount(){
@@ -22,6 +24,9 @@ class App extends Component {
     const mergedArray =[...role, ...level, ...skills];
     const allSkills =  [...new Set(mergedArray)];
     this.setState({allSkills});
+
+    const ids = this.state.jobList.flatMap(o => o.id);
+    this.setState({ids});
   }
 
   handleSkillSelection = (skill) => {
@@ -51,7 +56,8 @@ class App extends Component {
   }
 
   handleCompanySelection = (id) => {
-    console.log(id);
+    /* let ids = [...this.state.ids]; */
+    this.setState({activeId : id})
   }
 
   render(){
@@ -63,7 +69,7 @@ class App extends Component {
       <div className="App">
         <div className="main-container">
           <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearAllFilter} onClearSkill = {this.handleClearFilter}/>
-          <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection} onCompanySelection={this.handleCompanySelection}/>  
+          <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection} onCompanySelection={this.handleCompanySelection} active={this.state.activeId}/>  
         </div>        
                
       </div>

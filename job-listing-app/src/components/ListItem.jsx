@@ -6,23 +6,10 @@ import JobDetails from './ListDescription/JobDetails';
 import JobStatus from './ListDescription/JobStatus';
 
 export default class ListItem extends Component {
-    state = {clicked: false}
-    componentDidMount(){
-        this.setState({clicked: false})
-      }
-
-    handleSelection = () => {
-        if (this.state.clicked === false) {
-            this.setState({clicked: true});
-        }else{
-            this.setState({clicked: false});
-        }
-    }
 
     render() {
         const {logo, company, featured, position, postedAt, contract, location, languages, level, role, id} = this.props.jobListSkills;
-        let className = this.state.clicked ? 'list-item list-item-focus' : 'list-item';
-
+        let className = this.props.active === id ? 'list-item list-item-focus' : 'list-item';
         return (
             
             <div className={className}>
