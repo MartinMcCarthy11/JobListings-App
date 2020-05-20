@@ -20,8 +20,9 @@ export default class ListItem extends Component {
     }
 
     render() {
-        const {logo, company, featured, position, postedAt, contract, location, languages, level, role} = this.props.jobListSkills;
+        const {logo, company, featured, position, postedAt, contract, location, languages, level, role, id} = this.props.jobListSkills;
         let className = this.state.clicked ? 'list-item list-item-focus' : 'list-item';
+
         return (
             
             <div className={className}>
@@ -39,7 +40,8 @@ export default class ListItem extends Component {
                     <React.Fragment>
                         <JobRole 
                             jobRole = {position}
-                            onSelection = {this.handleSelection}/>
+                            jobId = {id}
+                            onCompanySelection= {this.props.onCompanySelection}/>
                     </React.Fragment>
                     <React.Fragment>
                         <JobDetails 

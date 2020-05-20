@@ -50,16 +50,20 @@ class App extends Component {
     this.setState({selectedSkills })
   }
 
+  handleCompanySelection = (id) => {
+    console.log(id);
+  }
+
   render(){
     //let filterSkills = this.filterSkills(this.state.allSkills, this.state.selectedSkills);
-
+    
 
 
     return (    
       <div className="App">
         <div className="main-container">
           <FilterList selectedSkills = {this.state.selectedSkills} onClearSkills = {this.handleClearAllFilter} onClearSkill = {this.handleClearFilter}/>
-          <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection}/>  
+          <List jobList = {this.state.jobList} onSkillSelection = {this.handleSkillSelection} onCompanySelection={this.handleCompanySelection}/>  
         </div>        
                
       </div>
