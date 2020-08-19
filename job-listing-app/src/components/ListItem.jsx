@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import ListSkills from './ListSkills';
+import {ListSkills} from './ListSkills';
 import ListImage from './ListImage';
-import JobRole from './ListDescription/JobRole';
-import JobDetails from './ListDescription/JobDetails';
+import {JobRole} from './ListDescription/JobRole';
+import {JobDetails} from './ListDescription/JobDetails';
 import JobStatus from './ListDescription/JobStatus';
 
 export default class ListItem extends Component {

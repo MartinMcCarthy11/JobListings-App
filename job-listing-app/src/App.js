@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import List from './components/List';
 import FilterList from './components/FilterList';
 import jobsListData from './data.json';
-import _ from 'lodash';
+// import _ from 'lodash';
 import './App.scss';
 
 class App extends Component {

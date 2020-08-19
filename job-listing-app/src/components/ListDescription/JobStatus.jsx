@@ -1,25 +1,20 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 export default class JobStatus extends Component {
-    
     isNew(){
-        return this.props.jobTagNew === true ? "New!" : "";
+        return this.props.jobTagNew ? "New!" : "";
     }
 
     isFeatured(){
-        return this.props.jobTagFeatured === true ? "Featured" : "";
+        return this.props.jobTagFeatured ? "Featured" : "";
     }
 
-    newClassList(){
-        if (this.props.jobTagNew) {
-            return "job-detail__item job-detail__item--new"
-        }
+    newClassList = () => {
+        return this.props.jobTagNew ? "job-detail__item job-detail__item--new": "job-detail__item ";
     }
 
-    featuredClassList(){
-        if (this.props.jobTagFeatured) {
-            return "job-detail__item job-detail__item--featured"
-        }
+    featuredClassList = () => {
+        return this.props.jobTagFeatured ? "job-detail__item job-detail__item--featured" : "job-detail__item";
     }
     
     render() {
@@ -32,3 +27,4 @@ export default class JobStatus extends Component {
         )
     }
 }
+
