@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const JobRole = ({jobId, jobRole, onCompanySelection}) => {
     return (
@@ -6,4 +7,10 @@ export const JobRole = ({jobId, jobRole, onCompanySelection}) => {
                 <h3 className="job-role" onClick={() => onCompanySelection(jobId)} >{jobRole}</h3>
         </div> 
     )
+}
+
+JobRole.propTypes = {
+    jobId: PropTypes.number.isRequired,
+    jobRole: PropTypes.string.isRequired,
+    onCompanySelection: PropTypes.func
 }

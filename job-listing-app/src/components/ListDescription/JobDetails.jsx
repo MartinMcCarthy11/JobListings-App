@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const JobDetails = ({jobAge, jobContract, joblocation}) => {
     return (
@@ -9,3 +10,8 @@ export const JobDetails = ({jobAge, jobContract, joblocation}) => {
             </div>
     )
 }
+ JobDetails.propTypes = {
+     jobAge: PropTypes.string.isRequired,
+     jobContract: PropTypes.string.isRequired,
+     joblocation: PropTypes.string.isRequired
+ }

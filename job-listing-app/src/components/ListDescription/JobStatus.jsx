@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 export default class JobStatus extends Component {
     isNew(){
@@ -28,3 +29,8 @@ export default class JobStatus extends Component {
     }
 }
 
+JobStatus.propTypes = {
+    jobTagNew: PropTypes.string,
+    jobTagFeatured: PropTypes.string,
+    jobcompany: PropTypes.string
+}
