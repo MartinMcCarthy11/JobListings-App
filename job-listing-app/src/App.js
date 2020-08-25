@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import List from './components/List';
-import FilterList from './components/FilterList';
+import {FilterList} from './components/FilterList';
 import jobsListData from './data.json';
 import './App.scss';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     jobList:[],
     selectedSkills: [],
@@ -89,7 +89,3 @@ class App extends Component {
   }
   
 }
-
-
-
-export default App;

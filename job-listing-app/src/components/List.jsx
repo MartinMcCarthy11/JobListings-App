@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import {ListItem} from './ListItem';
+import PropTypes from 'prop-types'
+import ListItem from './ListItem';
 
-class List extends Component {
+export default class List extends Component {
     state = {
         ids: [],
         activeId: 0
@@ -13,8 +14,7 @@ class List extends Component {
     }
 
     handleCompanySelection = (id) => {
-        id !== this.state.activeId ? this.setState({activeId : id}) : this.setState({activeId : 0});
-        
+        id !== this.state.activeId ? this.setState({activeId : id}) : this.setState({activeId : 0});        
       }
 
     render(){
@@ -27,12 +27,12 @@ class List extends Component {
                     ))}                               
                 </ul>
             </React.Fragment>
-        </div>
-           
+        </div>           
         )
-    }
-    
-    
+    }   
+}
+List.propTypes = {
+    jobList: PropTypes.array,
+    onSkillSelection: PropTypes.func
 }
 
-export default List;

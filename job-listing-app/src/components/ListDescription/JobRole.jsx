@@ -12,5 +12,5 @@ export const JobRole = ({jobId, jobRole, onCompanySelection}) => {
 JobRole.propTypes = {
     jobId: PropTypes.number.isRequired,
     jobRole: PropTypes.string.isRequired,
-    onCompanySelection: PropTypes.func
+    onCompanySelection: PropTypes.func.isRequired
 }

@@ -30,7 +30,7 @@ export default class JobStatus extends Component {
 }
 
 JobStatus.propTypes = {
-    jobTagNew: PropTypes.string,
-    jobTagFeatured: PropTypes.string,
+    jobTagNew: PropTypes.bool,
+    jobTagFeatured: PropTypes.bool,
     jobcompany: PropTypes.string
 }
