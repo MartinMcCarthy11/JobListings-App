@@ -7,8 +7,8 @@ import './App.scss';
 export default class App extends Component {
   state = {
     jobList:[],
-    selectedSkills: [],
-    allSkills: [],
+    selectedTags: [],
+    allTags: [],
     
   }
 
@@ -21,31 +21,29 @@ export default class App extends Component {
     const level = this.state.jobList.flatMap(o => o.role);
     const role = this.state.jobList.flatMap(o => o.level);
     const mergedArray =[...role, ...level, ...skills];
-    const allSkills =  [...new Set(mergedArray)];
-    this.setState({allSkills});
+    const allTags =  [...new Set(mergedArray)];
+    this.setState({allTags});
   }
 
-  handleSkillSelection = (skill) => {
-        let selectedSkills = [...this.state.selectedSkills];
-        selectedSkills.push(Object.values(skill)[0])
-        selectedSkills = [...new Set(selectedSkills)]
-        this.setState({selectedSkills })
+  handleTagSelection = (skill) => {
+        let selectedTags = [...this.state.selectedTags];
+        selectedTags.push(Object.values(skill)[0])
+        selectedTags = [...new Set(selectedTags)]
+        this.setState({selectedTags })
     }
 
-  filteredSkills = (allSkills, filterSkills) =>{
-    return allSkills.filter(f => filterSkills.includes(f));
+  filteredTags = (allTags, filterTag) =>{
+    return allTags.filter(tag => filterTag.includes(tag));
   }
 
-  filterJobs = (filterSkills, jobs) => {
-    let filteredArray = [...jobs].filter((element) => element.languages);
+  filterJobs = (filterTags, jobs) => {
+    let filteredArray = [...jobs].filter((e) => e.languages);
     let arr = filteredArray.map(({languages, id}) => ({languages, id}));
-    let arr1 = filterSkills.length > 0 ? arr.filter(x => x.languages.some(r=> filterSkills.includes(r))) : arr;
+    let arr1 = filterTags.length > 0 ? arr.filter(x => x.languages.some(r=> filterTags.includes(r))) : arr;
     let arr2 = arr1.map(x => x.id);
 
     let result = jobs.filter(job => {
-      if( arr2.indexOf(job.id) !== -1){
-        return job
-      }
+      return arr2.indexOf(job.id) !== -1 ? job : "";
     })
 
     if (result.length !== jobs.length){
@@ -55,23 +53,23 @@ export default class App extends Component {
   
   handleClearAllFilter = () => {
     this.setState({
-      selectedSkills : [],
+      selectedTags : [],
       jobList:jobsListData
     });
   }
 
   handleClearFilter = (skill) => {
-    let selectedSkills = [...this.state.selectedSkills];
-    const index = selectedSkills.indexOf(skill);
-    selectedSkills.splice(index, 1);
-    this.setState({selectedSkills })
+    let selectedTags = [...this.state.selectedTags];
+    const index = selectedTags.indexOf(skill);
+    selectedTags.splice(index, 1);
+    this.setState({selectedTags })
   }
 
 
   render(){
-    let filterSkills = this.filteredSkills(this.state.allSkills, this.state.selectedSkills);
-    console.log(filterSkills)
-    this.filterJobs(filterSkills, this.state.jobList);
+    let filterTags = this.filteredTags(this.state.allTags, this.state.selectedTags);
+    //console.log(filterTags)
+    this.filterJobs(filterTags, this.state.jobList);
 
 
     return (    
@@ -79,12 +77,12 @@ export default class App extends Component {
         <div className="background"></div>
         <div className="main-container">
           <FilterList 
-            selectedSkills = {this.state.selectedSkills}
-            onClearSkills = {this.handleClearAllFilter} 
-            onClearSkill = {this.handleClearFilter}/>
+            selectedTags = {this.state.selectedTags}
+            onClearTags = {this.handleClearAllFilter} 
+            onClearTag = {this.handleClearFilter}/>
           <List 
             jobList = {this.state.jobList} 
-            onSkillSelection = {this.handleSkillSelection}/>  
+            onTagSelection = {this.handleTagSelection}/>  
         </div>        
                
       </div>

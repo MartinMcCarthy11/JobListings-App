@@ -23,7 +23,7 @@ export default class List extends Component {
             <React.Fragment>
                 <ul>
                     {this.props.jobList.map(job => (
-                        <ListItem key={job.id} jobListSkills = {job} onSkillSelection = {this.props.onSkillSelection} onCompanySelection={this.handleCompanySelection} active={this.state.activeId}/> 
+                        <ListItem key={job.id} jobListSkills = {job} onTagSelection = {this.props.onTagSelection} onCompanySelection={this.handleCompanySelection} active={this.state.activeId}/> 
                     ))}                               
                 </ul>
             </React.Fragment>
@@ -33,6 +33,6 @@ export default class List extends Component {
 }
 List.propTypes = {
     jobList: PropTypes.array,
-    onSkillSelection: PropTypes.func
+    onTagSelection: PropTypes.func
 }
 
