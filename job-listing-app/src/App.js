@@ -54,7 +54,10 @@ export default class App extends Component {
   }
   
   handleClearAllFilter = () => {
-    this.setState({selectedSkills : []});
+    this.setState({
+      selectedSkills : [],
+      jobList:jobsListData
+    });
   }
 
   handleClearFilter = (skill) => {
