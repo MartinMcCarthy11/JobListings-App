@@ -44,7 +44,7 @@ export default class ListItem extends Component {
                             jobSkills = {languages}
                             jobLevel = {level}
                             jobRole = {role}
-                            onSkillSelection = {this.props.onSkillSelection}/>
+                            onTagSelection = {this.props.onTagSelection}/>
                     </ul>
                 </div>        
             </div>
