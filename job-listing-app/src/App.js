@@ -29,7 +29,10 @@ export default class App extends Component {
         let selectedTags = [...this.state.selectedTags];
         selectedTags.push(Object.values(skill)[0])
         selectedTags = [...new Set(selectedTags)]
-        this.setState({selectedTags })
+        
+        let filterTags = this.filteredTags(this.state.allTags, selectedTags );
+        let result = this.filterJobs(filterTags, this.state.jobList);
+        this.setState({selectedTags, jobsList : result })
     }
 
   filteredTags = (allTags, filterTag) =>{
@@ -37,18 +40,14 @@ export default class App extends Component {
   }
 
   filterJobs = (filterTags, jobs) => {
-    let filteredArray = [...jobs].filter((e) => e.languages);
-    let arr = filteredArray.map(({languages, id}) => ({languages, id}));
-    let arr1 = filterTags.length > 0 ? arr.filter(x => x.languages.some(r=> filterTags.includes(r))) : arr;
-    let arr2 = arr1.map(x => x.id);
+    let result = jobs;
 
-    let result = jobs.filter(job => {
-      return arr2.indexOf(job.id) !== -1 ? job : "";
+    filterTags.forEach(tag => {
+      console.log("filter",jobs.filter(job => job.languages.includes(tag)))
+      result = jobs.filter(job => job.languages.includes(tag))
     })
-
-    if (result.length !== jobs.length){
-      this.setState({jobList: result})
-    }
+    console.log("result", result);
+    return result;
   }
   
   handleClearAllFilter = () => {
@@ -65,13 +64,16 @@ export default class App extends Component {
     this.setState({selectedTags })
   }
 
+  // handleTagSelected = () => {
+  //   console.log("Test")
+  //   let filterTags = this.filteredTags(this.state.allTags, this.state.selectedTags);
+  //   this.filterJobs(filterTags, this.state.jobList);
+  // }
+
 
   render(){
-    let filterTags = this.filteredTags(this.state.allTags, this.state.selectedTags);
-    //console.log(filterTags)
-    this.filterJobs(filterTags, this.state.jobList);
-
-
+    
+    console.log("jobslist",this.state.jobList)
     return (    
       <div className="App">
         <div className="background"></div>
@@ -79,7 +81,8 @@ export default class App extends Component {
           <FilterList 
             selectedTags = {this.state.selectedTags}
             onClearTags = {this.handleClearAllFilter} 
-            onClearTag = {this.handleClearFilter}/>
+            onClearTag = {this.handleClearFilter}
+            />
           <List 
             jobList = {this.state.jobList} 
             onTagSelection = {this.handleTagSelection}/>  
