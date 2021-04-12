@@ -17,26 +17,26 @@ export default class ListItem extends Component {
                     <ListImage listImage = {logo}/>
                 </div>
                 <div className="list-description">
-                    <React.Fragment>
+                    <>
                         <JobStatus
                             jobcompany = {company}
                             jobTagNew = {this.props.jobListSkills.new}
                             jobTagFeatured = {featured}
                         />
-                    </React.Fragment>
-                    <React.Fragment>
+                    </>
+                    <>
                         <JobRole 
                             jobRole = {position}
                             jobId = {id}
                             onCompanySelection= {this.props.onCompanySelection}/>
-                    </React.Fragment>
-                    <React.Fragment>
+                    </>
+                    <>
                         <JobDetails 
                             jobAge = {postedAt}
                             jobContract = {contract}
                             joblocation = {location}
                             />
-                    </React.Fragment>
+                    </>
                 </div>
                 <div className="skills-list-container">
                     <ul className="skills-list">
