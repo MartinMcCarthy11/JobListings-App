@@ -6,7 +6,7 @@ import RemoveIcon from '../images/RemoveIcon';
 export const FilterList = ({
 	selectedTags,
 	onClearTag,
-	onClearTags,
+	onClearAllTags,
 	onTagSelected,
 }) => {
 	let classList =
@@ -23,7 +23,7 @@ export const FilterList = ({
 						</li>
 						<span
 							className='selected-skill__remove-icon'
-							onClick={() => onClearTag({ x })}
+							onClick={() => onClearTag(x)}
 						>
 							<RemoveIcon />
 						</span>
@@ -31,7 +31,7 @@ export const FilterList = ({
 				))}
 			</ul>
 			<ul className='skills-list'>
-				<li className='clear-button' onClick={onClearTags}>
+				<li className='clear-button' onClick={onClearAllTags}>
 					Clear
 				</li>
 			</ul>
@@ -39,9 +39,9 @@ export const FilterList = ({
 	);
 };
 
-FilterList.propTypes = {
-	selectedTags: PropTypes.array.isRequired,
-	onClearTags: PropTypes.func.isRequired,
-	onClearTag: PropTypes.func.isRequired,
-	// onTagSelected: PropTypes.func.isRequired
-};
+// FilterList.propTypes = {
+// 	selectedTags: PropTypes.array.isRequired,
+// 	onClearTags: PropTypes.func.isRequired,
+// 	onClearTag: PropTypes.func.isRequired,
+// 	// onTagSelected: PropTypes.func.isRequired
+// };
