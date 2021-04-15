@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 
-function List({ jobList, onTagSelection }) {
+function List({ jobList, onTagSelected }) {
 	const [ids, setIds] = useState();
 	const [activeId, setActiveId] = useState('');
 
@@ -19,13 +19,13 @@ function List({ jobList, onTagSelection }) {
 						<ListItem
 							key={job.id}
 							jobListSkills={job}
-							// onTagSelection={onTagSelection}
 							onCompanySelection={(id) =>
 								id !== activeId
 									? setActiveId(id)
 									: setActiveId(0)
 							}
 							active={activeId}
+							onTagSelected={onTagSelected}
 						/>
 					))}
 				</ul>
@@ -34,9 +34,9 @@ function List({ jobList, onTagSelection }) {
 	);
 }
 
-List.propTypes = {
-	jobList: PropTypes.array,
-	onTagSelection: PropTypes.func,
-};
+// List.propTypes = {
+// 	jobList: PropTypes.array,
+// 	onTagSelection: PropTypes.func,
+// };
 
 export default List;

@@ -19,6 +19,7 @@ export default class ListItem extends Component {
 			level,
 			role,
 			id,
+			onTagSelected,
 		} = this.props.jobListSkills;
 		let className =
 			this.props.active === id
@@ -58,7 +59,7 @@ export default class ListItem extends Component {
 							jobSkills={languages}
 							jobLevel={level}
 							jobRole={role}
-							// tagSelection = {}
+							onTagSelected={onTagSelected}
 						/>
 					</ul>
 				</div>
